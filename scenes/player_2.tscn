@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://lbbnv0ijmksy"]
+
+[ext_resource type="Script" path="res://scripts/player_2.gd" id="1_7i5e7"]
+[ext_resource type="Texture2D" uid="uid://delojuygdphau" path="res://assets/sprites/Knight_2/Idle.png" id="1_v1r8w"]
+[ext_resource type="FontFile" uid="uid://dvuuy3l415o6f" path="res://assets/fonts/PixelOperator8.ttf" id="2_fiec0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quytv"]
+atlas = ExtResource("1_v1r8w")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_883ai"]
+atlas = ExtResource("1_v1r8w")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7or1m"]
+atlas = ExtResource("1_v1r8w")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2w6q"]
+atlas = ExtResource("1_v1r8w")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1l4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quytv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_883ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7or1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2w6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Player2" type="CharacterBody2D"]
+script = ExtResource("1_7i5e7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(27.75, 1.5)
+scale = Vector2(0.457031, 0.460938)
+sprite_frames = SubResource("SpriteFrames_v1l4b")
+autoplay = "default"
+frame_progress = 0.68114
+
+[node name="Up" type="Label" parent="AnimatedSprite2D"]
+visible = false
+offset_left = -17.1089
+offset_top = -2.81761
+offset_right = 35.8911
+offset_bottom = 17.1824
+theme_override_fonts/font = ExtResource("2_fiec0")
+theme_override_font_sizes/font_size = 8
+text = "Move Up!"
+
+[node name="Down" type="Label" parent="AnimatedSprite2D"]
+visible = false
+offset_left = -113.426
+offset_top = -2.81761
+offset_right = -44.4258
+offset_bottom = 20.1824
+theme_override_fonts/font = ExtResource("2_fiec0")
+theme_override_font_sizes/font_size = 8
+text = "Move Down!"

@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://c05nq75sysvbj"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_sohaw"]
+[ext_resource type="FontFile" uid="uid://dvuuy3l415o6f" path="res://assets/fonts/PixelOperator8.ttf" id="2_a568k"]
+[ext_resource type="Texture2D" uid="uid://dp1gdch3o1pcq" path="res://assets/sprites/Castle -Background Layer 1.png" id="2_e1pgk"]
+[ext_resource type="Texture2D" uid="uid://br7w0i8rg3cx6" path="res://assets/sprites/Castle Tileset_Environment-Flame Holder 08.png" id="4_6asm4"]
+[ext_resource type="Texture2D" uid="uid://rd3vhhefk06j" path="res://assets/sprites/Castle Tileset_Environment-Web.png" id="5_o7bgc"]
+[ext_resource type="Texture2D" uid="uid://onvd6ljgweh1" path="res://assets/sprites/Castle Tileset_Environment - Sign 01.png" id="6_3dr8b"]
+[ext_resource type="Texture2D" uid="uid://cps0k7hh14yb" path="res://assets/sprites/Castle Tileset_Hazard-Saw.png" id="7_84t50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3kln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frehf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqsi2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nml2b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vfjb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p82ix"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 439.0
+offset_top = 319.0
+offset_right = -560.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sohaw")
+
+[node name="Castle-backgroundLayer1" type="Sprite2D" parent="."]
+position = Vector2(-419, -302)
+scale = Vector2(2.00521, 2.1213)
+texture = ExtResource("2_e1pgk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = -51.0
+offset_top = -122.0
+offset_right = 351.0
+offset_bottom = -61.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_a568k")
+theme_override_font_sizes/font_size = 44
+text = "Castel Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -10.0
+offset_right = 585.0
+offset_bottom = 209.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.0470588, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_a568k")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c3kln")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_frehf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqsi2")
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_a568k")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nml2b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6vfjb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p82ix")
+text = "Quit"
+
+[node name="CastleTilesetEnvironment-flameHolder08" type="Sprite2D" parent="."]
+position = Vector2(434, 129)
+scale = Vector2(0.730469, 0.660156)
+texture = ExtResource("4_6asm4")
+
+[node name="CastleTilesetEnvironment-flameHolder09" type="Sprite2D" parent="."]
+position = Vector2(-177, 127)
+scale = Vector2(0.730469, 0.660156)
+texture = ExtResource("4_6asm4")
+
+[node name="CastleTilesetEnvironment-web" type="Sprite2D" parent="."]
+position = Vector2(173, -219)
+scale = Vector2(1.74219, 1.47656)
+texture = ExtResource("5_o7bgc")
+
+[node name="CastleTilesetEnvironment-Sign01" type="Sprite2D" parent="."]
+position = Vector2(225, 6.5)
+scale = Vector2(0.421875, 0.382813)
+texture = ExtResource("6_3dr8b")
+
+[node name="CastleTilesetHazard-saw" type="Sprite2D" parent="."]
+position = Vector2(225, 56.5)
+scale = Vector2(0.289063, 0.3125)
+texture = ExtResource("7_84t50")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

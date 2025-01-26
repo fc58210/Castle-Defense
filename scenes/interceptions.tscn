@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://dt5lfl7qmtv5d"]
+
+[ext_resource type="Texture2D" uid="uid://c7wgaq40rnwxr" path="res://assets/Statue.png" id="1_53o7t"]
+[ext_resource type="Texture2D" uid="uid://35rjyc41rryu" path="res://assets/pngfind.com-explosion-sprite-png-4289579.png" id="1_i1h3r"]
+[ext_resource type="Script" path="res://scripts/interceptions.gd" id="1_yogef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pol4p"]
+atlas = ExtResource("1_i1h3r")
+region = Rect2(256, 0, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmib2"]
+atlas = ExtResource("1_i1h3r")
+region = Rect2(512, 0, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2l2c"]
+atlas = ExtResource("1_i1h3r")
+region = Rect2(0, 753, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tceoe"]
+atlas = ExtResource("1_i1h3r")
+region = Rect2(256, 753, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muuy6"]
+atlas = ExtResource("1_i1h3r")
+region = Rect2(512, 753, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py3xk"]
+atlas = ExtResource("1_53o7t")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vxj7"]
+atlas = ExtResource("1_i1h3r")
+region = Rect2(0, 0, 341, 167)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjlcl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pol4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmib2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2l2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tceoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muuy6")
+}],
+"loop": true,
+"name": &"Explosion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py3xk")
+}],
+"loop": true,
+"name": &"Statue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vxj7")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5m07"]
+size = Vector2(11.5, 28.5)
+
+[node name="Interceptions" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_yogef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10.875, 14.625)
+scale = Vector2(0.0947266, 0.104492)
+sprite_frames = SubResource("SpriteFrames_gjlcl")
+animation = &"empty"
+autoplay = "Statue"
+
+[node name="Timer" type="Timer" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(10, 15)
+shape = SubResource("RectangleShape2D_q5m07")
+one_way_collision = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]

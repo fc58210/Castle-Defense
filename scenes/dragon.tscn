@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://b628l0rigtnyj"]
+
+[ext_resource type="Script" path="res://scripts/dragon.gd" id="1_35dj4"]
+[ext_resource type="Texture2D" uid="uid://bu0oa5o1q2htu" path="res://assets/reddragonfly.png" id="1_hjgnm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q5is"]
+atlas = ExtResource("1_hjgnm")
+region = Rect2(0, 161, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t00t0"]
+atlas = ExtResource("1_hjgnm")
+region = Rect2(0, 0, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chbxv"]
+atlas = ExtResource("1_hjgnm")
+region = Rect2(205, 0, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkfbn"]
+atlas = ExtResource("1_hjgnm")
+region = Rect2(410, 0, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21gk5"]
+atlas = ExtResource("1_hjgnm")
+region = Rect2(615, 0, 205, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g53m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q5is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t00t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chbxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkfbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21gk5")
+}],
+"loop": true,
+"name": &"voo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5u75"]
+size = Vector2(50, 24.5)
+
+[node name="Dragon" type="CharacterBody2D" groups=["dragon"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_35dj4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 2.00001)
+scale = Vector2(0.431707, 0.437888)
+sprite_frames = SubResource("SpriteFrames_g53m8")
+animation = &"voo"
+autoplay = "voo"
+frame_progress = 0.925241
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.25)
+shape = SubResource("RectangleShape2D_q5u75")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1, 1)

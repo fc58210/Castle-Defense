@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d275strf7rxd3"]
+
+[ext_resource type="FontFile" uid="uid://dvuuy3l415o6f" path="res://assets/fonts/PixelOperator8.ttf" id="1_kgvd8"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="2_m8osd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdwa5"]
+
+[node name="ScoreLayer" type="CanvasLayer"]
+script = ExtResource("2_m8osd")
+
+[node name="score" type="Label" parent="."]
+z_index = 1
+offset_left = 12.0
+offset_top = 41.0
+offset_right = 165.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.895856, 0.907222, 0.213576, 1)
+theme_override_colors/font_shadow_color = Color(0.760523, 0.59024, 0, 1)
+theme_override_colors/font_outline_color = Color(0.425332, 0.318043, 0.0241189, 1)
+theme_override_fonts/font = ExtResource("1_kgvd8")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mdwa5")
+text = "Score: 0"

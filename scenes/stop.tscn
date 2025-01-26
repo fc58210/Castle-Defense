@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmbt0v77w4u0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gicq2"]
+size = Vector2(9, 1)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 9.5)
+shape = SubResource("RectangleShape2D_gicq2")

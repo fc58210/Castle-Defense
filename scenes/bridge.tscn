@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn0fmlkf107af"]
+
+[ext_resource type="Texture2D" uid="uid://dmeh3nedpf4yc" path="res://assets/sprites/Castle Tileset_Hazard- Saw Line.png" id="1_5otj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y18i8"]
+size = Vector2(163, 19.7222)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, 12.1)
+scale = Vector2(1, 0.72)
+shape = SubResource("RectangleShape2D_y18i8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.12501, 13)
+scale = Vector2(5.355, 0.036)
+texture = ExtResource("1_5otj0")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 14)
+target_position = Vector2(0, 9)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(0, -5)
+collision_mask = 3

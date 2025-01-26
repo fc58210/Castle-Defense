@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://smv3anxhro6t"]
+
+[ext_resource type="Script" path="res://scripts/sobe_desce.gd" id="1_1nnvq"]
+[ext_resource type="Texture2D" uid="uid://c4rhv1orenfqq" path="res://assets/sprites/Castle Tileset_Foldin Platform- 03.png" id="1_vmpao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4x4q"]
+size = Vector2(25, 8)
+
+[node name="sobe_desce" type="AnimatableBody2D"]
+script = ExtResource("1_1nnvq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4)
+scale = Vector2(0.234375, 0.136719)
+texture = ExtResource("1_vmpao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_n4x4q")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -12)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(0, 14)

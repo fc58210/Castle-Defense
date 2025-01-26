@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://i8cg5qe436f1"]
+
+[ext_resource type="Script" path="res://scripts/prison_inv.gd" id="1_51wg4"]
+[ext_resource type="Texture2D" uid="uid://dmeh3nedpf4yc" path="res://assets/sprites/Castle Tileset_Hazard- Saw Line.png" id="1_fgtou"]
+[ext_resource type="Texture2D" uid="uid://35rjyc41rryu" path="res://assets/pngfind.com-explosion-sprite-png-4289579.png" id="1_h2k6u"]
+[ext_resource type="Texture2D" uid="uid://dsvwns2aix34u" path="res://assets/sprites/knight.png" id="3_nrcit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qsdj"]
+atlas = ExtResource("1_h2k6u")
+region = Rect2(256, 0, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxfuq"]
+atlas = ExtResource("1_h2k6u")
+region = Rect2(512, 0, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mbpr"]
+atlas = ExtResource("1_h2k6u")
+region = Rect2(0, 753, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t71v8"]
+atlas = ExtResource("1_h2k6u")
+region = Rect2(256, 753, 256, 251)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky7jd"]
+atlas = ExtResource("1_fgtou")
+region = Rect2(0, 0, 50, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdqqp"]
+atlas = ExtResource("1_h2k6u")
+region = Rect2(321, 0, 107, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6soxt"]
+atlas = ExtResource("3_nrcit")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1v80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qsdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxfuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mbpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t71v8")
+}],
+"loop": false,
+"name": &"destructed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky7jd")
+}],
+"loop": true,
+"name": &"firm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdqqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6soxt")
+}],
+"loop": false,
+"name": &"invisible",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0jdv"]
+size = Vector2(27, 121)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["prison"]]
+script = ExtResource("1_51wg4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["prison"]]
+position = Vector2(3.8147e-06, -1.99998)
+scale = Vector2(0.995313, 0.282469)
+sprite_frames = SubResource("SpriteFrames_e1v80")
+animation = &"invisible"
+autoplay = "firm"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prison"]]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_h0jdv")

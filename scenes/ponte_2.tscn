@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgxpfcfxn4uj4"]
+
+[ext_resource type="Texture2D" uid="uid://c4rhv1orenfqq" path="res://assets/sprites/Castle Tileset_Foldin Platform- 03.png" id="1_y5xkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qo6l"]
+size = Vector2(129, 28)
+
+[node name="ponte2" type="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -10)
+shape = SubResource("RectangleShape2D_0qo6l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.26563, 0.5)
+texture = ExtResource("1_y5xkp")
+
+[node name="up" type="RayCast2D" parent="."]
+target_position = Vector2(0, -36)
+collision_mask = 3
+
+[node name="down" type="RayCast2D" parent="."]
+target_position = Vector2(0, 18)
+collision_mask = 3

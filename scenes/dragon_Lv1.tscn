@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqmbclccrfj3n"]
+
+[ext_resource type="Texture2D" uid="uid://bu0oa5o1q2htu" path="res://assets/reddragonfly.png" id="1_5p72h"]
+[ext_resource type="Script" path="res://scripts/dragon_lv_1.gd" id="1_p8nyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtpbp"]
+atlas = ExtResource("1_5p72h")
+region = Rect2(0, 161, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu7pq"]
+atlas = ExtResource("1_5p72h")
+region = Rect2(0, 0, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjbbv"]
+atlas = ExtResource("1_5p72h")
+region = Rect2(205, 0, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkkw3"]
+atlas = ExtResource("1_5p72h")
+region = Rect2(410, 0, 205, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyvd4"]
+atlas = ExtResource("1_5p72h")
+region = Rect2(615, 0, 205, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1g37"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtpbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu7pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjbbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkkw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyvd4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6ftb"]
+size = Vector2(62, 22)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_p8nyd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0.999996)
+scale = Vector2(0.578049, 0.549689)
+sprite_frames = SubResource("SpriteFrames_i1g37")
+autoplay = "default"
+frame_progress = 0.525138
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_m6ftb")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(35, 0)
